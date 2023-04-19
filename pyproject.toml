@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "ironlogapi"
 version = "0.1.0"
-description = ""
-authors = ["Brian Stauff <brian.stauff@icloud.com>"]
+description = "A backend API for Ironlog"
+authors = ["Brian Stauff <11544657+bstauff@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+flake8 = "^6.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
