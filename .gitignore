@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Mypy cache
+.mypy_cache/
+
+# Pytest cache
+.pytest_cache/
+
 # Dependency directories
 venv/
 env/
