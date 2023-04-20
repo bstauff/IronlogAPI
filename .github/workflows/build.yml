@@ -20,6 +20,12 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install
+      - name: run mypy
+        run: |
+          poetry run mypy ./
+      - name: run flake8
+        run: |
+          poetry run flake8
       - name: Test with pytest
         run: |
-          pytest
+          poetry run pytest
