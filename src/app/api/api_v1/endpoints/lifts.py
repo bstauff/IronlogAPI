@@ -5,7 +5,7 @@ from domain.lift import Lift
 router = APIRouter()
 
 
-@router.get("/")
+@router.get("/{user_id}")
 async def get_lifts(user_id: uuid.UUID):
     return get_user_lifts(user_id)
 
