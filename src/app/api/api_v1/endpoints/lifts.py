@@ -1,6 +1,6 @@
 import uuid
 from fastapi import APIRouter
-from domain.lift import Lift
+from app.domain.lift import Lift
 
 router = APIRouter()
 
