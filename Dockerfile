@@ -1,12 +1,22 @@
-FROM python:3.11-slim-bullseye
+FROM python:3.11-bullseye
 
-WORKDIR /src/app
+ENV YOUR_ENV=${YOUR_ENV} \
+    PYTHONFAULTHANDLER=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED=random \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100 
 
-COPY . .
+RUN pip install poetry
 
-RUN python3 -m pip install --user pipx
-RUN python3 -m pipx ensurepath
-RUN pipx install poetry
+WORKDIR /code/
+
+COPY poetry.lock pyproject.toml /code/
 
 RUN poetry config virtualenvs.create false \
     && poetry install --no-dev --no-interaction --no-ansi
+
+COPY /src/ .
+
+ENTRYPOINT ["poetry", "run", "uvicorn", "app.main:app"]
