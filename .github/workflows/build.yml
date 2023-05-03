@@ -3,6 +3,9 @@ on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
     strategy:
       matrix:
         python-version: ["3.11"]
