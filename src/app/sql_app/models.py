@@ -12,6 +12,16 @@ class Lift(Base):
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     lift_key: Mapped[UUID] = mapped_column(unique=True, index=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    name: Mapped[str] = mapped_column(String, index=True)
+    training_max: Mapped[int] = mapped_column(Integer)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    is_deleted: Mapped[bool] = mapped_column(Boolean, default=False)
+    created_date: Mapped[datetime] = mapped_column(
+        DateTime, default=datetime.now(timezone.utc)
+    )
+    modified_date: Mapped[datetime] = mapped_column(
+        DateTime, default=datetime.now(timezone.utc)
+    )
 
     # id = Column(Integer, primary_key=True, index=True)
     # lift_key = Column(UUID, unique=True, index=True)
