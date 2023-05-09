@@ -1,7 +1,8 @@
 from datetime import datetime, timezone
-from sqlalchemy import Boolean, DateTime, Integer, String, UUID
+from sqlalchemy import Boolean, DateTime, Integer, String
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import mapped_column, Mapped, relationship
+from uuid import UUID
 
 from .database import Base
 
