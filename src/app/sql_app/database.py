@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "postgresql://postgres:p@ssw0rd@localhost:5432/ironlog"
+DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/ironlog"
 
 engine = create_engine(DATABASE_URL)
 

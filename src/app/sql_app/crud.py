@@ -2,10 +2,10 @@ from sqlalchemy.orm import Session
 
 from . import models, schemas
 
-from uuid import uuid
+import uuid
 
 
-def get_user(db: Session, user_id: int) -> models.User:
+def get_user(db: Session, user_id: int) -> models.User | None:
     return db.query(models.User).filter(models.User.id == user_id).first()
 
 
