@@ -5,8 +5,9 @@ from . import models, schemas
 import uuid
 
 
-def get_user(db: Session, user_id: int) -> models.User | None:
-    return db.query(models.User).filter(models.User.id == user_id).first()
+def get_user(db: Session, user_key: uuid.UUID) -> models.User | None:
+    users = db.query(models.User).filter(models.User.user_key == user_key)
+    return users.first()
 
 
 def create_user(db: Session, user: schemas.UserCreate) -> models.User:
