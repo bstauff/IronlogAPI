@@ -25,10 +25,10 @@ jobs:
           poetry install
       - name: run mypy
         run: |
-          poetry run mypy ./
+          poetry run mypy ./app/
       - name: run flake8
         run: |
-          poetry run flake8
+          poetry run flake8 ./app/
       - name: Test with pytest
         run: |
           poetry run pytest
