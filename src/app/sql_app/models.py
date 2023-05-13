@@ -12,6 +12,7 @@ class User(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     user_key: Mapped[UUID] = mapped_column(unique=True, index=True)
+    email: Mapped[str] = mapped_column(unique=True, index=True, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     is_deleted: Mapped[bool] = mapped_column(Boolean, default=False)
     created_date: Mapped[datetime] = mapped_column(
