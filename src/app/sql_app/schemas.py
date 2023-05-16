@@ -26,12 +26,11 @@ class LiftCreate(BaseModel):
 
 
 class UserBase(BaseModel):
-    pass
+    email: str
 
 
 class User(UserBase):
     user_key: uuid.UUID
-    email: str
     is_active: bool
     is_deleted: bool
     created_date: datetime
@@ -41,6 +40,5 @@ class User(UserBase):
         orm_mode = True
 
 
-class UserCreate(BaseModel):
-    user_email: str
-    user_key = uuid.uuid4()
+class UserCreate(UserBase):
+    pass
