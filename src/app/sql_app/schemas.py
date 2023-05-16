@@ -30,9 +30,8 @@ class UserBase(BaseModel):
 
 
 class User(UserBase):
-    id: int
     user_key: uuid.UUID
-    user_email: str
+    email: str
     is_active: bool
     is_deleted: bool
     created_date: datetime
