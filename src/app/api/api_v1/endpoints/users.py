@@ -19,7 +19,7 @@ def get_db():
         db.close()
 
 
-@router.post("/")
+@router.post("/", response_model=schemas.User)
 async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     created_user: models.User = crud.create_user(db=db, user=user)
     return created_user

@@ -36,7 +36,6 @@ class User(UserBase):
     is_deleted: bool
     created_date: datetime
     modified_date: datetime
-    lifts: list[Lift] = []
 
     class Config:
         orm_mode = True
