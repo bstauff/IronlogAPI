@@ -21,8 +21,13 @@ def get_db():
 
 @router.post("/", response_model=schemas.User)
 async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    created_user: models.User = crud.create_user(db=db, user=user)
-    return created_user
+    try:
+        created_user: models.User = crud.create_user(db=db, user=user)
+        return created_user
+    except crud.UserEmailAlreadyExists:
+        raise HTTPException(
+            status_code=400, detail="User already exists with this email"
+        )
 
 
 @router.get("/{user_id}", response_model=schemas.User)
